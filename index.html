@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIRD - Quartier Général</title>
+
+    <!-- Design system + layout -->
+    <link rel="stylesheet" href="css/shared.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Polices rétro -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Effets CRT globaux -->
+    <div class="crt-overlay"></div>
+    <div class="vignette"></div>
+
+    <!-- Conteneur pour les modales (histoire, badges, nudge Decathlon) -->
+    <div id="modal-container"></div>
+
+    <div id="main-terminal">
+        <header class="terminal-header">
+            <div class="header-left"><span class="blink">●</span> ONLINE</div>
+            <div class="header-center">/// PIXELAND RESISTANCE HUB ///</div>
+            <div class="header-right">USER: ADMIN_01</div>
+        </header>
+
+        <main class="dashboard-grid">
+            <!-- COLONNE GAUCHE -->
+            <aside class="panel left-panel">
+                <div class="stats-box">
+                    <h3>RESSOURCES</h3>
+                    <div class="stat-row">
+                        <span class="label">OCTETS LIBRES:</span>
+                        <span id="score-display" class="value big-green">0</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="label">FLUX / SEC:</span>
+                        <span id="pps-display" class="value">0.0</span>
+                    </div>
+                </div>
+
+                <!-- Progression vers le prochain chapitre de lore -->
+                <div class="meta-progress">
+                    <div class="meta-progress-header">
+                        <span>Prochain chapitre de lore</span>
+                        <span id="lore-progress-label">0 / 500 pts</span>
+                    </div>
+                    <div class="meta-progress-track">
+                        <div id="lore-progress-bar"></div>
+                    </div>
+                </div>
+
+                <!-- Badges / succès -->
+                <div class="achievements-box">
+                    <h3>Badges débloqués</h3>
+                    <ul id="achievements-list"></ul>
+                </div>
+
+                <nav class="nav-menu">
+                    <h3>MODULES</h3>
+                    <button class="nav-btn active" disabled>> [QG] CENTRE DE COMMANDE</button>
+                    <a href="decathlon.html" class="nav-btn">
+                        > [SANTÉ] UNITÉ MÉDICALE
+                        <span id="medical-badge" class="hidden">[BONUS]</span>
+                    </a>
+                    <a href="lore.html" class="nav-btn">> [ARCHIVES] HISTORIQUE</a>
+                </nav>
+
+                <div class="log-box">
+                    <h3>JOURNAL SYSTÈME</h3>
+                    <div id="console-logs"><p>> Initialisation...</p></div>
+                </div>
+            </aside>
+
+            <!-- COLONNE CENTRALE : JEU -->
+            <section class="panel center-panel">
+                <div class="screen-monitor">
+                    <div class="target-info">
+                        <span class="label">CIBLE ACTUELLE:</span>
+                        <span class="target-name blink">SERVEURS GARGLE ADS</span>
+                    </div>
+                    <div id="click-zone" style="position: relative;">
+                        <button id="hack-btn">
+                            <div class="btn-inner">
+                                <span class="hack-text">LIBÉRER DES DONNÉES</span>
+                                <span class="click-power-text">
+                                    +<span id="click-power-display">1</span> OL
+                                </span>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- COLONNE DROITE : SHOP -->
+            <aside class="panel right-panel">
+                <h3>MARKETPLACE LIBRE</h3>
+                <div class="tabs">
+                    <button class="tab-btn active">MATÉRIEL</button>
+                    <button class="tab-btn">LOGICIEL</button>
+                </div>
+                <div id="shop-container" class="shop-list"></div>
+            </aside>
+        </main>
+
+        <footer class="terminal-footer">
+            <div class="version">NIRD_OS v3.0 STABLE</div>
+            <button onclick="localStorage.clear(); location.reload();" style="background:none; border:none; color:#333; cursor:pointer;">[ RESET ]</button>
+        </footer>
+    </div>
+
+    <!-- Scripts de persistance, logique de jeu et snake caché -->
+    <script src="js/storage.js"></script>
+    <script src="js/game.js"></script>
+    <script src="/js/snake.js"></script>
+</body>
+</html>

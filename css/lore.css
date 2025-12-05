@@ -1,0 +1,167 @@
+/* ===== Layout général de la page lore ===== */
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: var(--font-code);
+  min-height: 100vh;
+  overflow-y: auto;
+}
+
+/* Conteneur principal façon terminal */
+#lore-terminal {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px 24px;
+  background: var(--terminal-bg);
+  border: 2px solid var(--secondary);
+  box-shadow: 0 0 25px var(--accent);
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Header */
+
+.lore-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #333;
+  padding-bottom: 10px;
+}
+
+.lore-title {
+  font-family: var(--font-title);
+  font-size: 0.9rem;
+  color: var(--primary);
+  text-transform: uppercase;
+}
+
+.lore-nav {
+  display: flex;
+  gap: 10px;
+}
+
+.lore-btn {
+  font-family: var(--font-code);
+  font-size: 0.8rem;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  padding: 6px 10px;
+  text-decoration: none;
+  background: transparent;
+  transition: 0.2s;
+}
+
+.lore-btn:hover {
+  background: var(--primary);
+  color: #000;
+  box-shadow: 0 0 10px var(--primary);
+}
+
+/* Intro */
+
+.lore-intro p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.lore-score {
+  margin-top: 8px;
+  color: var(--primary);
+  font-size: 0.85rem;
+}
+
+/* Liste de chapitres */
+
+.lore-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Carte de chapitre */
+
+.lore-entry {
+  background: rgba(0, 0, 0, 0.6);
+  border-left: 3px solid #333;
+  padding: 14px 18px;
+  position: relative;
+  opacity: 0.45;
+  filter: grayscale(0.8);
+  transition: 0.2s;
+}
+
+.lore-entry.unlocked {
+  border-left-color: var(--primary);
+  opacity: 1;
+  filter: none;
+  box-shadow: 0 0 10px rgba(0, 255, 65, 0.2);
+}
+
+/* Titre & texte */
+
+.lore-entry .lore-title {
+  font-family: var(--font-title);
+  font-size: 0.9rem;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+.lore-entry .lore-text {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* État verrouillé */
+
+.lore-entry.locked {
+  opacity: 0.55;
+  filter: grayscale(1);
+}
+
+.locked-text {
+  letter-spacing: 2px;
+  color: #333;
+  font-size: 0.85rem;
+  margin: 6px 0;
+}
+
+.lock-caption {
+  margin-top: 2px;
+  font-size: 0.75rem;
+  color: #888;
+}
+
+.lore-footer {
+  border-top: 1px solid #333;
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  color: #777;
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+  #lore-terminal {
+    margin: 20px 10px;
+    padding: 14px;
+  }
+
+  .lore-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .lore-btn {
+    width: 100%;
+    text-align: center;
+  }
+}

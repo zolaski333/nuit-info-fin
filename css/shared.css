@@ -1,0 +1,88 @@
+/* === STYLE PARTAGÉ (Design System) === */
+:root {
+    --bg-color: #050505;
+    --terminal-bg: #0a0a0a;
+    --primary: #00ff41; /* Vert Matrix */
+    --secondary: #008F11;
+    --accent: #003b00;
+    --alert: #ff3333;
+    --decat-blue: #0082C3;
+    --text-main: #e0e0e0;
+    --font-title: 'Press Start 2P', cursive;
+    --font-code: 'Share Tech Mono', monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: var(--font-code);
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Effets CRT */
+.crt-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: repeating-linear-gradient(0deg, rgba(0,0,0,0.15) 0px, rgba(0,0,0,0.15) 1px, transparent 1px, transparent 2px);
+    pointer-events: none; z-index: 999;
+}
+.vignette {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle, rgba(0,0,0,0) 85%, rgba(0,0,0,0.6) 100%);
+    pointer-events: none; z-index: 998;
+}
+
+/* Animations Globales */
+.blink { animation: blink 1s infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.hidden { display: none !important; }
+
+/* === PARTICULES FLOTTANTES (Nouveau !) === */
+.floating-text {
+    position: absolute;
+    color: var(--primary);
+    font-weight: bold;
+    font-size: 1.2rem;
+    pointer-events: none;
+    animation: floatUp 1s ease-out forwards;
+    z-index: 1000;
+    text-shadow: 0 0 5px var(--primary);
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0) scale(1); opacity: 1; }
+    100% { transform: translateY(-50px) scale(1.5); opacity: 0; }
+}
+
+/* === POP-UP NARRATIVE (Nouveau !) === */
+.modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.8); z-index: 2000;
+    display: flex; align-items: center; justify-content: center;
+    backdrop-filter: blur(2px);
+}
+
+.story-modal {
+    background: #000; border: 2px solid var(--primary);
+    width: 500px; padding: 2px;
+    box-shadow: 0 0 30px var(--primary);
+    animation: modalPop 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+
+.story-header {
+    background: var(--primary); color: black; padding: 10px;
+    font-family: var(--font-title); font-size: 0.8rem;
+    display: flex; justify-content: space-between;
+}
+
+.story-content { padding: 20px; color: var(--primary); line-height: 1.5; }
+
+.story-btn {
+    display: block; width: 100%; background: #111; border: none; border-top: 1px solid var(--primary);
+    color: white; padding: 15px; cursor: pointer; font-family: var(--font-code);
+}
+.story-btn:hover { background: var(--primary); color: black; }
+
+@keyframes modalPop { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }

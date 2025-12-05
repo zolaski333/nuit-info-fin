@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pixeland – Archives du Village</title>
+
+  <!-- Même structure que index.html -->
+  <link rel="stylesheet" href="css/shared.css">
+  <link rel="stylesheet" href="css/lore.css">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Effets CRT globaux -->
+  <div class="crt-overlay"></div>
+  <div class="vignette"></div>
+
+  <main id="lore-terminal">
+    <header class="lore-header">
+      <div class="lore-title">
+        PIXELAND // ARCHIVES DU VILLAGE
+      </div>
+      <nav class="lore-nav">
+        <a href="index.html" class="lore-btn">← Retour au poste de contrôle</a>
+      </nav>
+    </header>
+
+    <section class="lore-intro">
+      <p>
+        Chaque clic contre Gargle libère un fragment de mémoire. Plus ton score NIRD est élevé,
+        plus les chapitres de l'histoire de Pixeland se déverrouillent.
+      </p>
+      <p class="lore-score" id="current-score-display">
+        Score actuel : <span id="current-score-value">0</span> NIRD Points
+      </p>
+    </section>
+
+    <!-- Chapitres injectés par lore.js -->
+    <section id="lore-list" class="lore-list"></section>
+
+    <footer class="lore-footer">
+      <span>// PIXELAND v1.0 – Résistance numérique en cours…</span>
+      <span class="blink">█</span>
+    </footer>
+  </main>
+
+  <script src="js/storage.js"></script>
+  <script src="js/lore.js"></script>
+  <script>
+    // Affiche le score actuel si GameData est dispo
+    if (window.GameData && typeof GameData.points === "number") {
+      document.getElementById("current-score-value").textContent = Math.floor(GameData.points);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnostic NIRD x Decathlon</title>
+    <link rel="stylesheet" href="css/decathlon.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="crt-overlay"></div>
+    <div class="vignette"></div>
+
+    <div id="decathlon-terminal">
+        <header class="terminal-header">
+            <div class="header-left"><span class="blink">●</span> SYSTEM_READY</div>
+            <div class="header-center">UNITE MEDICALE DE PIXELAND</div>
+            <div class="header-right"><button id="btn-quit-top" class="text-btn">[ X ] FERMER</button></div>
+        </header>
+
+        <main id="app-content">
+            <!-- INTRO -->
+            <section id="intro-view" class="view active">
+                <div class="logo-container">
+                    <pre class="ascii-art">
+   _____       _   
+  / ____|     | |  
+ | (___   __ _| |_ 
+  \___ \ / _` | __|
+  ____) | (_| | |_ 
+ |_____/ \__,_|\__| v.1.0.3
+                    </pre>
+                </div>
+                <h1 class="glitch" data-text="DIAGNOSTIC BIOMÉTRIQUE">DIAGNOSTIC BIOMETRIQUE</h1>
+                <div class="intro-details">
+                    <p>> Cible : Interface Chaise-Clavier</p>
+                    <p>> Objectif : Prévention Obsolescence</p>
+                    <p>> Statut : EN ATTENTE</p>
+                </div>
+                <button id="btn-start" class="cyber-btn">LANCER L'ANALYSE</button>
+            </section>
+
+            <!-- QUIZ -->
+            <section id="quiz-view" class="view">
+                <div class="progress-header">
+                    <span id="phase-label">PHASE 1: HARDWARE</span>
+                    <div class="progress-track"><div id="progress-bar"></div></div>
+                </div>
+                <div id="question-container" class="glass-panel">
+                    <!-- Injecté par JS -->
+                </div>
+            </section>
+
+            <!-- RÉSULTATS -->
+            <section id="result-view" class="view">
+                <h2 class="warning-text">RAPPORT D'ANALYSE</h2>
+                <div class="report-grid">
+                    <!-- PROBLÈME (GAUCHE) -->
+                    <div class="report-card error-card">
+                        <h3>[ ! ] DÉFAILLANCE DÉTECTÉE</h3>
+                        <div id="result-symptom" class="big-stat">...</div>
+                        <p class="card-desc">Zone critique identifiée. Risque de panne matérielle (blessure) élevé.</p>
+                    </div>
+
+                    <!-- SOLUTION (DROITE) -->
+                    <div class="report-card solution-card">
+                        <h3>[ + ] PROTOCOLE DE RÉPARATION</h3>
+                        
+                        <!-- PRODUIT PRINCIPAL -->
+                        <div class="product-display">
+                            <div class="product-img-container">
+                                <img id="product-img" src="" alt="Equipement">
+                            </div>
+                            <div class="product-details">
+                                <h4 id="product-name">...</h4>
+                                <p id="product-real-name">...</p>
+                                <p id="product-desc">...</p>
+                            </div>
+                        </div>
+
+                        <!-- NOUVEAU : PRODUITS SECONDAIRES (Caché si vide) -->
+                        <div id="secondary-patches">
+                            <!-- Injecté par JS -->
+                        </div>
+
+                        <div class="action-area">
+                            <h4>MANUEL D'UTILISATION :</h4>
+                            <ul id="final-advice-list" class="advice-list">
+                                <!-- Liste injectée par JS -->
+                            </ul>
+                            
+                            <div class="btn-group">
+                                <a id="decathlon-link" href="#" target="_blank" class="decathlon-link">
+                                    VOIR SUR DECATHLON.FR >
+                                </a>
+                                <button id="btn-restart" class="secondary-btn">NOUVEAU SCAN</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-actions">
+                    <button id="btn-quit-bottom" class="text-btn">< RETOUR AU JEU</button>
+                </div>
+            </section>
+        </main>
+
+        <footer class="terminal-footer">
+            <div id="status-line">> WAITING FOR INPUT...</div>
+            <div class="version">NIRD_OS 2025</div>
+        </footer>
+    </div>
+
+    <!-- JS -->
+    <script src="js/storage.js"></script>
+    <script src="js/decathlon.js"></script>
+</body>
+</html>
